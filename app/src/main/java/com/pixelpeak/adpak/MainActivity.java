@@ -1,9 +1,10 @@
 package com.pixelpeak.adpak;
 
-import android.content.res.AssetFileDescriptor;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.VideoView;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         initialVideo.start();
         initialVideo.setOnCompletionListener(mediaPlayer -> {
             initialVideo.start();
+        });
+
+        initialVideo.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
